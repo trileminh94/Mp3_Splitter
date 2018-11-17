@@ -11,7 +11,12 @@ def getTimeInMilisecond(time, end):
 
     arr = time.split(':')
     if len(arr) == 2 :
-        return (int(arr[0]) * 60 + int(arr[1])) * 1000
+        tmp = (int(arr[0]) * 60 + int(arr[1])) * 1000
+        if tmp < 0:
+            tmp = 0
+        if tmp > end:
+            tmp = end
+        return tmp
     else :
         raise Exception("Invalid time expression")
 
